@@ -1,0 +1,27 @@
+ul.a {
+	list-style-type: none;
+	margin: 10px;
+	padding: 8px;
+	overflow: hidden;
+	background-color: #003366;
+	width: 100%;
+	text-align: center;
+    font-family: 'Artifika';
+}
+li.b {
+	display: inline;
+}
+li.b a {
+	display: inline-block;
+	color: pink;
+	text-align: center;
+	padding: 16px 18px;
+	text-decoration: none;
+
+	font-family: 'Artifika';
+}
+li.b a:hover {
+	background-color: #ffe6e6;
+	color: #ff3333;
+	
+}
