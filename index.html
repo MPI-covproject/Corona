@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<title>covid 19 form</title>
+<body>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+	<script>
+
+    $(document).ready(function() {
+    		c=$('li');
+    		let c1=0;
+    		$('.result').click(function(){
+    			for(let i=0;i<c.length;i++){
+    				if($('.q5').val()==c[i]){
+    					c1=1;
+    					$('.result').after(c1);
+    				};
+    			};
+    		if($('.q3').val()=='COUGH' || $('.q3').val()=='FEVER' || $('.q3').val()=='DIFFICULTY IN BREATHING' || $('.q3').val()=='MUSCLE ACHE' || $('.q3').val()=='LACK OF TASTE OR SMELL' && $('.q4').val()=='YES')
+    		{
+    			$('.result').text('You must go to hospital asap and keep yourself quarentined.Stay Quarentine Stay safe :)');
+    		};
+
+    		if($('.q3').val()=='NONE' && $('.q4').val()=='YES' && c1==0 || c1==1){
+    			$('.result').text('Please stay self quarentined');
+    		}
+    		if($('.q3').val()=='COUGH' || $('.q3').val()=='FEVER' || $('.q3').val()=='DIFFICULTY IN BREATHING' || $('.q3').val()=='MUSCLE ACHE' || $('.q3').val()=='LACK OF TASTE OR SMELL' && $('.q4').val()=='NO' && c1==1)
+    		{
+    			$('.result').text('Please visit the doctor');
+    		}
+    		if($('.q3').val()=='NONE' && $('.q4').val()=='NO' && c1==0 || c1==1){
+    			$('.result').text('You are absolutely safe. Stay at home and Stay Safe');
+    		}
+    		else{
+    			$('.result').text('Please fill all the information');
+    		}
+    		
+
+    		
+    		});
+    		});
+
+
+
+    	
+
+	</script>
+    <h1 class='test'>Want to take a test</h1>
+    <h3><br>Please fill in <i>capital letters</i> go ahead!!</h3>
+    <form>
+
+    	<h2 class='t1'>1. What is your gender?</h2>
+    	<input type='Text' class='q1'>
+    	<h2 class='t2'>2. What is your age?</h2>
+    	<input type="Text" class='q2'>
+    	<h2 class='t3'>3. Are you feeling any of these symptoms: cough,fever,difficulty in breathing,muscle ache,lack of taste or smell? Otherwise write NONE.</h2>
+    	
+    	<input type="Text" class='q3'>
+    	<h2 class='t4'>4. Do you have any travel history(out of india) since last 3 months?</h2>
+    	<input type='Text' class='q4'>
+    	<h2 class='t5'>5. Please mention the city and region where you live.</h2>
+    	<input type="Text" class='q5'></br>
+    	<button class='reset'>Reset</button>
+    	<h2 class='result'>click here for results</h2>
+    </form>
+<h1 class='hotspot'>LIST OF HOTSPOTS ARE GIVEN:</h1>
+<ol>
+    <li>Mumbai</li>
+
+	<li>Pune</li> 
+
+
+	<li>Nizammudin</li>
+
+	<li>Dilshad Garden</li>
+
+	<li>South Delhi</li>
+
+
+	<li>Noida</li>
+
+	<li>Meerut</li>
+
+	<li>Gautam Budhh Nagar</li>
+	<li>Kasargod</li>
+	<li>Pathanamthitta</li>
+
+	<li>Kannur</li>
+
+	<li>Chennai</li>
+
+	<li>Coimbature</li>
+
+	<li>Hyderabad</li>
+	<li>Bhilwara</li>
+
+
+	<li>Ahmedabad</li>
+
+
+
+	<li>Bhopal</li>
+
+	<li>Indore</li>
+
+
+	<li>Bengaluru</li>
+
+	<li>Mysore</li>
+</ol>
+</body>
+</html>

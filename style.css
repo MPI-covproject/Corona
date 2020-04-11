@@ -1,0 +1,31 @@
+.test{
+	color:purple;
+	text-align:center;
+	font-size: 50px;
+
+}
+h3{
+	color:purple;
+	font-size:30px;
+
+}
+.q1,.q2,.q3,.q4,.q5,.reset{
+	color:blue;
+	margin-left:575px;
+}
+body{
+	background-color:lightblue;
+}
+.t1,.t2,.t3,.t4,.t5,.result{
+	color:purple;
+	text-align:center;
+}
+button{
+	
+	margin-left:700px;
+	margin-top:20px;
+}
+.hotspot{
+	color:purple;
+
+}
