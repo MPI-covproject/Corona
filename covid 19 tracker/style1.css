@@ -1,0 +1,24 @@
+#root{
+	text-align:center;
+	color:purple;
+}
+label,select,input{
+	font-size:20px;
+	background-color: '#f7f1e2';
+	
+}
+#root1,#root2{
+	text-align:center;
+	color:purple;
+}
+#t2{
+	background-color:purple;
+	height:30px;
+	text-align:center;
+}
+label{
+	color:#f7f1e2;
+}
+body{
+	background-color:#f7f1e2;
+}

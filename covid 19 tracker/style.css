@@ -1,0 +1,19 @@
+label,select,.state,.reset{
+	font-size:26px
+},
+#myChart{
+	height:80px;
+}
+label,select,.state,.reset{
+	color:purple;
+}
+.t1,.total{
+	text-align:center;
+	color:purple;
+}
+.t2{
+	color:red;
+}
+body{
+	background-color:#f7f1e2;
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React Local</title>
+<!-- Import the React, React-Dom and Babel libraries from unpkg -->
+  <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+  <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+  <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="style1.css">
+</head>
+  
+<body>
+
+  <div id="root"></div> 
+  <div id='t2'>
+     <label >Choose a country:</label>
+  <select>
+    <option>Click here....</option>
+
+    <option>USA</option>
+    <option>Spain</option>
+    <option>France</option>
+    <option>India</option>
+    <option>Italy</option>
+    <option>Germany</option>
+    <option>UK</option>
+    <option>Turkey</option>
+    <option>Iran</option>
+    <option>Russia</option>
+    <option>Brazil</option>
+    <option>Belgium</option>
+    <option>Canada</option>
+    <option>Netherland</option>
+    <option>Switzerland</option>
+    <option>Portugal</option>
+    <option>Peru</option>
+    <option>Ireland</option>
+    <option>Switzerland</option>
+    <option>Austria</option>
+    <option>Israel</option>
+    <option>Saudi Arabia</option>
+    <option>Japan</option>
+    <option>Chile</option>
+    <option>Singapore</option>
+    <option>Pakistan</option>
+    <option>S. Korea</option>
+    <option>Mexico</option>
+    <option>Poland</option>
+    <option>Romania</option>
+    <option>UAE</option>
+    <option>Denmark</option>
+    <option>Belarus</option>
+    <option>Indonesia</option>
+    <option>Quatar</option>
+    <option>Norway</option>
+    <option>Czechia</option>
+    <option>Philippins</option>
+    <option>Australia</option>
+    <option>Malaysia</option>
+    <option>Dominican Republic</option>
+    <option>Panama</option>
+    <option>Colombia</option>
+    <option>Finland</option>
+    <option>Bangladesh</option>
+    <option>South Africa</option>
+    <option>Egypt</option>
+    <option>Luxembuorg</option>
+    <option>Morocco</option>
+    <option>Argentina</option>
+    <option>Algeria</option>
+    <option>Moldova</option>
+    <option>Thailand</option>
+    <option>Greece</option>
+    <option>Kuwait</option>
+    <option>Kazakhastan</option>
+    <option>Hungary</option>
+    <option>Bahrain</option>
+    <option>Croatia</option>
+    <option>Iceland</option>
+    <option>Uzbekistan</option>
+    <option>Oman</option>
+    <option>Iraq</option>
+    <option>Estonia</option>
+    <option>New Zealand</option>
+    <option>Lithuania</option>
+    <option>Slovakia</option>
+    <option>Slovenia</option>
+    <option>Cameroon</option>
+    <option>Afghanistan</option>
+    <option>Cuba</option>
+    <option>Ghana</option>
+    <option>Hong Kong</option>
+    <option>Djibouti</option>
+    <option>Ivory Coast</option>
+    <option>Tunisia</option>
+    <option>Nigeria</option>
+    <option>Guinea</option>
+    <option>Cyprus</option>
+    <option>Latvia</option>
+    <option>Andorra</option>
+    <option>Lebanon</option>
+    <option>Costa Rica</option>
+    <option>Bolivia</option>
+    <option>Albania</option>
+    <option>Niger</option>
+    <option>Burkina Faso</option>
+    <option>Uruguay</option>
+    <option>Channel Islands</option>
+    
+  </select>
+   <input type='Submit' class='country'>
+  </div>
+  <div id='root1'></div>
+  <div id='root2'></div>
+  
+
+<script type="text/babel">
+  
+  fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+        "x-rapidapi-key": "9880eaa0c5msh9d0ca652592b44fp1d22b1jsnc016e77f1c37"
+    }
+})
+.then(response => response.json().then( data => {
+    console.log(data);
+    var newcase = data.new_cases;
+    var totalcase=data.total_cases;
+    var totaldeath=data.total_deaths;
+    var newdeath=data.new_deaths;
+    var totalrecovered=data.total_recovered;
+    console.log(newcase);
+    class Covid extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {data1:newcase,data2:totalcase,data3:totaldeath,data4:newdeath,data5:totalrecovered};
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      100
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+       data1:newcase,data2:totalcase,data3:totaldeath,data4:newdeath,data5:totalrecovered
+    });
+  }
+
+  
+
+  
+
+  render() {
+    return (
+      <div>
+        <h1>Covid 19 tracker</h1>
+        <h2>new cases : {this.state.data1}</h2>
+        <h2>total cases : {this.state.data2}</h2>
+        <h2>total death : {this.state.data3}</h2>
+        <h2>new death: {this.state.data4}</h2>
+        <h2>total recovered: {this.state.data5}</h2>
+        
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Covid />,
+  document.getElementById('root')
+);
+    
+    }))
+.catch(err => {
+    console.log(err);
+});
+
+fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+        "x-rapidapi-key": "9880eaa0c5msh9d0ca652592b44fp1d22b1jsnc016e77f1c37"
+    }
+})
+.then(response => response.json().then(data =>{
+    console.log(data);
+  
+    
+     $(document).ready(function() {
+
+        $('input').click(function(){
+            
+            let v=$('select').val();
+            console.log(v);
+            for(let i=0;i<data.countries_stat.length;i++){
+
+            if(v==data.countries_stat[i].country_name){
+              class Clock extends React.Component {
+                  constructor(props) {
+                  super(props);
+                  this.state = {data1:data.countries_stat[i].country_name,data2:data.countries_stat[i].cases,data3:data.countries_stat[i].deaths,data4:data.countries_stat[i].total_recovered,data5:data.countries_stat[i].total_tests,data6:data.countries_stat[i].new_cases,data7:data.countries_stat[i].active_cases };
+              }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      data1:data.countries_stat[i].country_name,
+      data2:data.countries_stat[i].cases,
+      data3:data.countries_stat[i].deaths,
+      data4:data.countries_stat[i].total_recovered,
+      data5:data.countries_stat[i].total_tests,
+      data6:data.countries_stat[i].new_cases,
+      data7:data.countries_stat[i].active_cases 
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        
+        <h2>Country name: {this.state.data1}</h2>
+        <h2>Total cases: {this.state.data2}</h2>
+        <h2>Total deaths: {this.state.data3}</h2>
+        <h2>Total recovered: {this.state.data4}</h2>
+        <h2>Total tests: {this.state.data5}</h2>
+        <h2>New cases: {this.state.data6}</h2>
+        <h2>Active cases: {this.state.data7}</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root1')
+);
+  
+            };
+            if(v=='India'){
+              var element=<h2><a href='file:///C:/Users/lenovo/Desktop/reactjs1/charts.html'>Click here to see state data</a></h2>
+              ReactDOM.render(
+                element,
+                document.getElementById('root2')
+);
+          }
+          }
+          })
+        })
+  }));
+</script>
+  
+</body>
+
+</html>
